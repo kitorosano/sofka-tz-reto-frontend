@@ -1,0 +1,9 @@
+export const SHOW_MESSAGE = '@talent_zone_reto_frontend/SHOW_MESSAGE';
+export const CLEAN_MESSAGE = '@talent_zone_reto_frontend/CLEAN_MESSAGE';
+export const SET_LOADING = '@talent_zone_reto_frontend/SET_LOADING';
+export const GET_ALL_PRODUCTS = '@talent_zone_reto_frontend/GET_ALL_PRODUCTS';
+export const SELECT_PRODUCT = '@talent_zone_reto_frontend/SELECT_PRODUCT';
+export const ADD_TO_CART = '@talent_zone_reto_frontend/ADD_TO_CART';
+export const REMOVE_FROM_CART = '@talent_zone_reto_frontend/REMOVE_FROM_CART';
+export const CLEAR_CART = '@talent_zone_reto_frontend/CLEAR_CART';
+export const GET_ALL_BUYS = '@talent_zone_reto_frontend/GET_ALL_BUYS';

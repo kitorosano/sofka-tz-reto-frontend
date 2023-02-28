@@ -1,0 +1,21 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  background: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+  color: black;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.sidebar > h1 {
+  font-family: Geneva, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  text-align: center;
+  font-weight: 900;
+}
+
+.sidebar > hr {
+  width: 70%;
+}
