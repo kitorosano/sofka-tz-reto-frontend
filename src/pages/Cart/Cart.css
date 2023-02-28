@@ -1,0 +1,19 @@
+.product-cart {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  background-color: #f7f7f7;
+  padding: 1rem;
+  align-items: center;
+  margin-top: 2rem;
+  color: #000;
+}
