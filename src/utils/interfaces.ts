@@ -42,11 +42,29 @@ export interface HistoryInterface {
 	clientIdType: string;
 	clientId: string;
 	products: BoughtProductInterface[];
-	date: string;
+	date: Date;
 }
 
 export interface HistoryResponseInterface {
 	items: HistoryInterface[];
 	currentPage: number;
 	totalCount: number;
+}
+
+export interface CartInterface {
+	id: string;
+	name: string;
+	inventory: number;
+	min: number;
+	max: number;
+	enabled: boolean;
+	quantity: number;
+}
+
+export interface CartInfoInterface {
+	products: CartInterface[];
+	clientName: string;
+	clientIdType: string;
+	clientId: string;
+	date: Date;
 }

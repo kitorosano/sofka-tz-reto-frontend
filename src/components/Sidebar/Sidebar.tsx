@@ -15,11 +15,12 @@ function Sidebar() {
 			<div className='sidebar'>
 				<h1>TALENTZONE SHOP</h1>
 				<hr />
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <Button
             variant='outlined'
             color="inherit"
             size="large"
+            sx={{ py: 2 }}
             endIcon={<SegmentIcon />}
             onClick={() => navigate('/')}
           >
@@ -30,6 +31,7 @@ function Sidebar() {
             variant='outlined'
             color="inherit"
             size="large"
+            sx={{ py: 2 }}
             endIcon={<AddCircleOutlineIcon />}
             onClick={() => navigate('/add-product')}
           >
@@ -40,6 +42,7 @@ function Sidebar() {
             variant='outlined'
             color="inherit"
             size="large"
+            sx={{ py: 2 }}
             endIcon={<ShoppingCartIcon />}
             onClick={() => navigate('/cart')}
           >
@@ -50,6 +53,7 @@ function Sidebar() {
             variant='outlined'
             color="inherit"
             size="large"
+            sx={{ py: 2 }}
             endIcon={<HistoryIcon />}
             onClick={() => navigate('/buys')}
           >

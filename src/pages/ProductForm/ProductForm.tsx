@@ -40,7 +40,13 @@ function ProductForm({
 			setMin(selectedProduct.min);
 			setMax(selectedProduct.max);
 			setEnabled(selectedProduct.enabled);
-		}
+		} else {
+      setName('');
+      setInventory(0);
+      setMin(0);
+      setMax(0);
+      setEnabled(true);
+    }
 	}, [selectedProduct]);
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -91,17 +97,16 @@ function ProductForm({
       UpdateProduct({...product, id: productId});
     } else {
       AddProduct(product);
+      setName('');
+      setInventory(0);
+      setMin(0);
+      setMax(0);
     }
-
-    setName('');
-    setInventory(0);
-    setMin(0);
-    setMax(0);
 	};
 
 	return (
 		<div className='product-form'>
-			<h1>Agregar Nuevo Producto</h1>
+			<h1>{productId ? "Editar" : "Agregar Nuevo"} Producto</h1>
 
 			<form className='form-container' onSubmit={handleSubmit} autoComplete='off'>
 				<FormControl sx={{ width: 1, gap: 2 }}>
@@ -165,7 +170,7 @@ function ProductForm({
 					/>
 
 					<Button sx={{ mt: 1, mr: 1 }} type='submit' variant='contained'>
-						Agregar
+						{productId ? "Modificar" : "Agregar"}
 					</Button>
 				</FormControl>
 			</form>

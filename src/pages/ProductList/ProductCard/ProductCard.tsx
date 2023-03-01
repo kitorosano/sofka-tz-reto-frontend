@@ -5,7 +5,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
-import { ProductInterface } from '../../utils/interfaces';
+import { ProductInterface, CartInterface } from '../../../utils/interfaces';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import EditIcon from '@mui/icons-material/Edit';
@@ -14,14 +14,16 @@ import {
 	AddToCartAction,
 	DeleteProductAction,
 	SelectProductAction,
-} from '../../redux/actions';
+} from '../../../redux/actions';
 import { useNavigate } from 'react-router-dom';
+import { ShowNotificationAction } from '../../../redux/actions';
 
 interface ProductCardProps {
 	product: ProductInterface;
-	AddToCart: (product: ProductInterface) => void;
+	AddToCart: (product: ProductInterface | CartInterface) => void;
 	SelectProduct: (id: string) => void;
 	DeleteProduct: (id: string) => void;
+  ShowNotification: (message: string, type: string, timer?: number) => void;
 }
 
 function ProductCard({
@@ -29,12 +31,14 @@ function ProductCard({
 	AddToCart,
 	SelectProduct,
 	DeleteProduct,
+  ShowNotification
 }: ProductCardProps) {
 	const { id, name, inventory, enabled } = product;
 	const navigate = useNavigate();
 
 	const addToCart = () => {
 		AddToCart(product);
+		ShowNotification('Producto agregado al carrito', 'success', 3000);
 	};
 
 	const editProduct = (id) => {
@@ -44,6 +48,7 @@ function ProductCard({
 
 	const deleteProduct = (id) => {
 		DeleteProduct(id);
+    ShowNotification('Producto eliminado del carrito', 'success', 3000);
 	};
 
 	return (
@@ -87,8 +92,11 @@ function ProductCard({
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	AddToCart: (product: ProductInterface) => dispatch(AddToCartAction(product)),
+	AddToCart: (product: ProductInterface | CartInterface) =>
+		dispatch(AddToCartAction(product)),
 	SelectProduct: (id: string) => dispatch(SelectProductAction(id)),
 	DeleteProduct: (id: string) => dispatch(DeleteProductAction(id)),
+  ShowNotification: (message: string, type: string, timer = 4000) =>
+    dispatch(ShowNotificationAction(message, type, timer)),
 });
 export default connect(null, mapDispatchToProps)(ProductCard);

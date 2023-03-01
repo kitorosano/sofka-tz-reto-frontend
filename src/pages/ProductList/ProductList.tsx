@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './ProductList.css';
 import { connect } from 'react-redux';
 import { Grid, TablePagination } from '@mui/material';
-import ProductCard from '../../components/ProductCard/ProductCard';
-import { GetAllProductsAction } from '../../redux/actions';
+import ProductCard from './ProductCard/ProductCard';
+import { GetAllProductsAction, SelectProductAction } from '../../redux/actions';
 import { ProductResponseInterface } from '../../utils/interfaces';
 
 interface ProductListProps {

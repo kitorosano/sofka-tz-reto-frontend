@@ -1,10 +1,10 @@
 .alert {
-	position: absolute;
+	position: fixed;
 	right: 0;
 	min-width: 200px;
   max-width: 300px;
 	display: flex;
-	z-index: 1; /* Sit on top */
+	z-index: 15; /* Sit on top */
 	text-align: left;
 	align-items: center;
   

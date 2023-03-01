@@ -22,11 +22,6 @@ import moment from 'moment';
 function Row({ row }) {
   const [open, setOpen] = React.useState(false);
 
-  const products = Object.entries(row.products).map((product: any) => {
-    const id: string = product[0];
-    const quantity: number = product[1];
-    return { id, quantity };
-  });
   return (
     <React.Fragment>
       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -42,7 +37,7 @@ function Row({ row }) {
         <TableCell component="th" scope="row">
           {row.clientIdType} {row.clientId}
         </TableCell>
-        <TableCell align="right">{row.clientName}</TableCell>
+        <TableCell align="center">{row.clientName}</TableCell>
         <TableCell align="right">{row.date}</TableCell>
       </TableRow>
       <TableRow>
@@ -56,16 +51,22 @@ function Row({ row }) {
                 <TableHead>
                   <TableRow>
                     <TableCell>Id</TableCell>
-                    <TableCell align="right">Cantidad</TableCell>
+                    <TableCell>Nombre</TableCell>
+                    <TableCell align="left">Cantidad</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {products.map((product) => (
+                  {row.products.map((product) => (
                     <TableRow key={product.id}>
                       <TableCell component="th" scope="row">
                         {product.quantity}
                       </TableCell>
-                      <TableCell align="right">{product.quantity}</TableCell>
+                      <TableCell align="left">{product.name}</TableCell>
+                      <TableCell align="left">{product.quantity}</TableCell>
+                      <TableCell></TableCell>
+                      <TableCell></TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -121,7 +122,7 @@ function BuyHistory({
               <TableRow>
                 <TableCell />
                 <TableCell>Id Cliente</TableCell>
-                <TableCell>Cliente</TableCell>
+                <TableCell align="center">Nombre Cliente</TableCell>
                 <TableCell align="right">Fecha de Compra</TableCell>
               </TableRow>
             </TableHead>

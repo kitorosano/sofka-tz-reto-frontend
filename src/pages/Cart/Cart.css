@@ -17,3 +17,8 @@
   margin-top: 2rem;
   color: #000;
 }
+
+hr {
+  border: 1px solid #bdbdbd;
+  width: 100%;
+}
